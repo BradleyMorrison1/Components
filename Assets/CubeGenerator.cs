@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CubeGenerator : MonoBehaviour
+public class Cube : MonoBehaviour
 {
     void Start()
     {
@@ -16,10 +16,7 @@ public class CubeGenerator : MonoBehaviour
         //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         // RigidBody Component
-        //gameObject.AddComponent<Rigidbody>();
-
-
-
+        gameObject.AddComponent<Rigidbody>();
     }
 
     void Update()
