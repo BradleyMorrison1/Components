@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cube : MonoBehaviour
+public class CubeGenerator : MonoBehaviour
 {
     void Start()
     {
@@ -16,13 +16,25 @@ public class Cube : MonoBehaviour
         //gameObject.GetComponent<MeshRenderer>().enabled = false;
 
         // RigidBody Component
-        gameObject.AddComponent<Rigidbody>();
+        //gameObject.AddComponent<Rigidbody>();
+
+
+        GameObject[] cubes; // Proper Way
+
     }
 
     void Update()
     {
         // Transform Component
         //gameObject.transform.Translate(new Vector3(0.0f, 0.0f, 0.0f));
+        
+        GameObject cube; // Individually (and lose the reference after)
+        cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.AddComponent<Rigidbody>();
+
+        // change color
+        Color[] colors = { Color.cyan, Color.magenta, };
+        cube.GetComponent<MeshRenderer>().material.SetColor("_Color", colors[Random.Range(0, 2)]);
 
     }
 }
